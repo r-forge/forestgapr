@@ -21,8 +21,9 @@ This function computes second order statistics of forest canopy gaps (\code{\lin
 \code{\link[sp:SpatialPointsDataFrame-class]{sp::SpatialPointsDataFrame}} objects
 }
 \examples{
-\dontrun{
-#Loading raster and viridis libraries
+# This takes > 5 seconds!
+\donttest{
+# Loading raster and viridis libraries
 library(raster)
 library(viridis)
 
@@ -32,11 +33,11 @@ data(ALS_CHM_CAU_2014)
 
 # set height thresholds (e.g. 10 meters)
 threshold <- 10
-size <- c(1,1000) # m2
+size <- c(1, 1000) # m2
 
 # Detecting forest gaps
-gaps_cau2012 <- getForestGaps(chm_layer = ALS_CHM_CAU_2012, threshold=threshold, size=size)
-gaps_cau2014 <- getForestGaps(chm_layer = ALS_CHM_CAU_2014, threshold=threshold, size=size)
+gaps_cau2012 <- getForestGaps(chm_layer = ALS_CHM_CAU_2012, threshold = threshold, size = size)
+gaps_cau2014 <- getForestGaps(chm_layer = ALS_CHM_CAU_2014, threshold = threshold, size = size)
 
 # Converting raster layers to SpatialPolygonsDataFrame
 gaps_cau2012_spdf <- GapSPDF(gap_layer = gaps_cau2012)
